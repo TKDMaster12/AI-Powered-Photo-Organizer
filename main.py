@@ -149,9 +149,10 @@ def process_folder(target_folder: str):
         else:
             destination_folder = analysis.suggested_folder
             print(f"  [+] Organized as: {destination_folder}")
+        
         # Create directory and move
         target_dir = path / destination_folder
-        target_dir.mkdir(exist_ok=True)
+        target_dir.mkdir(parents=True, exist_ok=True)
         
         # Move the file (now with updated metadata)
         new_path = target_dir / photo_path.name
